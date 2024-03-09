@@ -27,29 +27,27 @@ namespace Collatz.Services
         /// </summary>
         /// <param name="initialValue">The initial value</param>
         /// <returns>A list of the values generated via iterating the sequence</returns>
-        public static List<long> ComputeStatic(long initialValue)
+        public static RunResult ComputeStatic(long initialValue)
         {
-            if (initialValue <= 1) return new List<long> { 1 };
+            var result = new RunResult(initialValue);
+            if (initialValue <= 1) return result;
             var current = initialValue;
-            var values = new List<long> { current };
             while (current != 1)
             {
                 current = (current % 2 == 0) ? 
                     current / 2 : 
                     3 * current + 1;
-                values.Add(current);
+                result.Values.Add(current);
             }
-            return values;
+            result.Analyze();
+            return result;
         }
 
-        public static void ConsoleDisplayForList(List<long> collatzOfX)
+        public static void ConsoleDisplayForResult(RunResult result)
         {
-            var initial = collatzOfX.First();
-            var remainder = collatzOfX.Skip(1).ToList();
-            var max = collatzOfX.Max();
-            Console.WriteLine($"Collatz of {initial} with length {remainder.Count} and max {max}:");
-            Console.Write(initial);
-            remainder.ForEach(x => Console.Write($"\t{x}"));
+            Console.WriteLine($"Collatz of {result.InitialValue} with {result.Steps} steps and max {result.Max}:");
+            Console.Write(result.InitialValue);
+            result.Values.Skip(1).ToList().ForEach(x => Console.Write($"\t{x}"));
             Console.WriteLine();
         }
     }

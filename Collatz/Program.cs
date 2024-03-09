@@ -13,7 +13,7 @@ namespace Collatz
             //var processor = new CollatzProcessor();
             long x = 9;
             var collatzOfX = CollatzProcessor.ComputeStatic(x);
-            CollatzProcessor.ConsoleDisplayForList(collatzOfX);
+            CollatzProcessor.ConsoleDisplayForResult(collatzOfX);
         }
     }
 }
