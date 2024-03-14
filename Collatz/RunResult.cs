@@ -8,21 +8,21 @@ namespace Collatz
 {
     public class RunResult
     {
-        public long InitialValue { get; private set; }
-        public long Steps { get; set; }
-        public long Max { get; set; }
-        public List<long> Values { get; set; }
-        public RunResult(long initialValue) 
+        public int InitialValue { get; private set; }
+        public int Steps { get; set; }
+        public int Max { get; set; }
+        public List<int> Values { get; set; }
+        public RunResult(int initialValue) 
         { 
             InitialValue = initialValue;
             Steps = 0;
             Max = initialValue;
-            Values = new List<long> { initialValue };
+            Values = new List<int> { initialValue };
         }
 
         public void Analyze()
         {
-            Steps = Values.Count - 1;
+            Steps = (int)Values.Count - 1;
             Max = Values.Max();
         }
     }

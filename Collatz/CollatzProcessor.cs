@@ -8,12 +8,20 @@ namespace Collatz.Services
 {
     public class CollatzProcessor
     {
-        public CollatzProcessor()
+        public DirectedGraph CollatzGraph { get; internal set; }
+        
+        public CollatzProcessor(int maxN)
         {
-            /* TODO:
-            * init: hydrate graph incl. checking data folder for serialized (packed) graph & metadata (steps, max, etc.)
-            */
+            CollatzGraph = new DirectedGraph(maxN);
+            // TODO: * init: hydrate graph incl. checking data folder for serialized (packed) graph & metadata (steps, max, etc.)
+            // TODO: Add delegate methods to do the calculations (one for odd, one for even) with parametrization or static compilation?
+            
+        }
 
+        public DirectedGraph AscendGraph()
+        {
+            CollatzGraph.Ascend();
+            return CollatzGraph;
         }
         
         /* TODO:
@@ -27,10 +35,11 @@ namespace Collatz.Services
         /// </summary>
         /// <param name="initialValue">The initial value</param>
         /// <returns>A list of the values generated via iterating the sequence</returns>
-        public static RunResult ComputeStatic(long initialValue)
+        public static RunResult ComputeStatic(int initialValue)
         {
+            if (initialValue <= 1) return new RunResult(1);
+
             var result = new RunResult(initialValue);
-            if (initialValue <= 1) return result;
             var current = initialValue;
             while (current != 1)
             {
@@ -43,12 +52,9 @@ namespace Collatz.Services
             return result;
         }
 
-        public static void ConsoleDisplayForResult(RunResult result)
+        public static void GenerateGraphLayoutForStatic(RunResult result)
         {
-            Console.WriteLine($"Collatz of {result.InitialValue} with {result.Steps} steps and max {result.Max}:");
-            Console.Write(result.InitialValue);
-            result.Values.Skip(1).ToList().ForEach(x => Console.Write($"\t{x}"));
-            Console.WriteLine();
+
         }
     }
 }
