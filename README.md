@@ -10,6 +10,13 @@
 
 - [Bugs](https://github.com/Rohit19060/<project-name>/issues "Issues Page")
 
+### About the Conjecture
+
+- [Collatz Graph](https://www.jasondavies.com/collatz-graph/) by Jason Davies
+- [The Simplest Math Problem No One Can Solve - Collatz Conjecture](https://www.youtube.com/watch?v=094y1Z2wpJg) - Veritasium | YouTube
+- [What is the Collatz Conjecture
+and Why Is It so Interesting?](https://cdn.ymaws.com/amatyc.org/resource/resmgr/2021_conference_proceedings/s016a_virtual_9b_2_collatz_c.pdf) - A history and initial analysis of the problem by Alexander Atwood, presented at the AMATYC Annual Conference, 2021
+
 ## Screenshots
 
 ![Home Page](/screenshots/1.png "Home Page")
@@ -18,37 +25,17 @@
 
 ![](/screenshots/3.png)
 
-## Available Commands
+## Building & Running
 
-In the project directory, you can run:
+In the project directory, compile with your development environment of choice, though it was built with (and contains a Solution file for) Visual Studio 2022. Xunit tests are available in the CollatzTest project.
 
-### `npm start" : "react-scripts start"`,
 
-The app is built using `create-react-app` so this command Runs the app in Development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser. You also need to run the server file as well to completely run the app. The page will reload if you make edits.
-You will also see any lint errors in the console.
-
-### `"npm run build": "react-scripts build"`,
-
-Builds the app for production to the `build` folder. It correctly bundles React in production mode and optimizes the build for the best performance. The build is minified and the filenames include the hashes. Your app will be ready to deploy!
-
-### `"npm run test": "react-scripts test"`,
-
-Launches the test runner in the interactive watch mode.
-
-### `"npm run dev": "concurrently "nodemon server" "npm run start"`,
-
-For running the server and app together I am using concurrently this helps a lot in the MERN application as it runs both the server (client and server) concurrently. So you can work on them both together.
-
-### `"serve": "node server"`
-
-For running the server file on you can use this command.
-
-### `npm run serve`
 
 ## Built With
 
 - .Net 7.0
 - xunit
+- Visual Studio 2022
 
 ## Future Updates
 
@@ -57,7 +44,8 @@ For running the server file on you can use this command.
 - [ ] Building the `2^n` "spine"
 - [ ] "Chunk" handling
 - [ ] Command line params for non-interactive mode, graph generation to file, etc.
-- [ ] Incorporating [MS Automatic Graph Layout](https://github.com/microsoft/automatic-graph-layout)
+- [ ] ~~Incorporating [MS Automatic Graph Layout](https://github.com/microsoft/automatic-graph-layout)~~ - UPDATE: not using due to UWP prereq
+- [ ] More test coverage
 
 ### Algorithm future state ideas
 
